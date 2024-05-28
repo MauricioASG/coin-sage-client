@@ -3,11 +3,11 @@ import { login } from '../services/api';
 import '../styles/LoginForm.css'; // Archivo CSS para estilos
 import logo from '../assets/MoneyWiseLogo.jpg'; // Importa la imagen directamente
 
-function LoginForm({ onLoginSuccess }) {
+function LoginForm({ onLoginSuccess, onChangeToCrearCuenta }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -46,6 +46,7 @@ function LoginForm({ onLoginSuccess }) {
           />
           <button type="submit" className="button">Iniciar sesión</button>
         </form>
+        <button className="button" onClick={onChangeToCrearCuenta}>Crear cuenta</button>
       </div>
     </div>
   );

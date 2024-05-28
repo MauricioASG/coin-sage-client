@@ -10,3 +10,12 @@ export const login = async (email, password) => {
     throw new Error('Credenciales inválidas. Inténtalo de nuevo.');
   }
 };
+
+export const crearCuenta = async (nombre, email, passw) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/crear-cuenta`, { nombre, email, passw });
+    return response.data;
+  } catch (error) {
+    throw new Error('Error al crear la cuenta. Inténtalo de nuevo.');
+  }
+};
