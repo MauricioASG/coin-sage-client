@@ -1,4 +1,5 @@
 // SalarioForm.jsx
+// src/components/SalarioForm.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -8,7 +9,7 @@ const SalarioForm = ({ userId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/usuarios/${userId}/salario`, { salario });
+      await axios.post(`http://localhost:3050/usuarios/${userId}/salario`, { salario });
       alert('Salario registrado exitosamente');
     } catch (error) {
       alert('Error al registrar el salario');

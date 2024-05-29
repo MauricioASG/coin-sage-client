@@ -1,3 +1,4 @@
+// src/components/GastoForm.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -9,7 +10,7 @@ const GastoForm = ({ userId }) => {
   useEffect(() => {
     const fetchCategorias = async () => {
       try {
-        const response = await axios.get('/categorias');
+        const response = await axios.get('http://localhost:3050/categorias');
         if (Array.isArray(response.data)) {
           setCategorias(response.data);
         } else {
@@ -27,9 +28,10 @@ const GastoForm = ({ userId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/transacciones/gasto', { usuario_id: userId, categoria_id: categoriaId, monto });
+      await axios.post('http://localhost:3050/transacciones/gasto', { usuario_id: userId, categoria_id: categoriaId, monto });
       alert('Gasto registrado exitosamente');
     } catch (error) {
+      console.error('Error al registrar el gasto:', error);
       alert('Error al registrar el gasto');
     }
   };
