@@ -1,61 +1,36 @@
 // App.tsx
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import CrearCuentaForm from './components/CrearCuentaForm';
-import PieChart from './components/PieChart';
-import SalarioForm from './components/SalarioForm';
-import GastoForm from './components/GastoForm';
+import Dashboard from './components/Dashboard'; // Crearemos este componente
 import axios from 'axios';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [creatingAccount, setCreatingAccount] = useState(false);
-  const [gastos, setGastos] = useState([]);
 
   useEffect(() => {
-    if (user) {
-      const fetchGastos = async () => {
-        try {
-          const response = await axios.get(`/transacciones/${user.id}/gastos`);
-          setGastos(response.data);
-        } catch (error) {
-          console.error('Error al obtener los gastos:', error);
-          setGastos([]);
-        }
-      };
-
-      fetchGastos();
+    // Verificar si hay un usuario autenticado guardado en localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
-  }, [user]);
+  }, []);
 
   const handleLoginSuccess = (userData) => {
     setUser(userData);
-    setCreatingAccount(false); // Asegúrate de ocultar el formulario de crear cuenta si el usuario inicia sesión
-  };
-
-  const handleCrearCuenta = () => {
-    setCreatingAccount(true);
+    localStorage.setItem('user', JSON.stringify(userData)); // Guardar usuario en localStorage
   };
 
   return (
-    <div>
-      <h1>Aplicación de Finanzas Personales</h1>
-      {user ? (
-        <div>
-          <h2>Bienvenido, {user.nombre}</h2>
-          <p>Este es tu panel de control.</p>
-          <SalarioForm userId={user.id} />
-          <GastoForm userId={user.id} />
-          <PieChart data={gastos} />
-        </div>
-      ) : (
-        <div>
-          <LoginForm onLoginSuccess={handleLoginSuccess} />
-          <button onClick={handleCrearCuenta}>Crear cuenta</button>
-          {creatingAccount && <CrearCuentaForm onCuentaCreada={handleLoginSuccess} />}
-        </div>
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
+        <Route path="/login" element={<LoginForm onLoginSuccess={handleLoginSuccess} />} />
+        <Route path="/crear-cuenta" element={<CrearCuentaForm onCuentaCreada={handleLoginSuccess} />} />
+        <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} />
+      </Routes>
+    </Router>
   );
 }
 

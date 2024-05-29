@@ -1,5 +1,7 @@
-//CrearCuentasForm.jsx
+// /components/CrearCuentasForm.jsx
+// CrearCuentaForm.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { crearCuenta } from '../services/api';
 import '../styles/LoginForm.css';
 
@@ -8,6 +10,7 @@ function CrearCuentaForm({ onCuentaCreada }) {
   const [email, setEmail] = useState('');
   const [passw, setPassw] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleCrearCuenta = async (e) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ function CrearCuentaForm({ onCuentaCreada }) {
       const userData = await crearCuenta(nombre, email, passw);
       onCuentaCreada(userData.user);
       setError(null);
+      navigate('/dashboard');
     } catch (error) {
       setError('Error al crear la cuenta. Inténtalo de nuevo.');
     }
