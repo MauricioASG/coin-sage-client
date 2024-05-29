@@ -1,13 +1,14 @@
+//LoginForm.jsx
 import React, { useState } from 'react';
 import { login } from '../services/api';
-import '../styles/LoginForm.css'; // Archivo CSS para estilos
-import logo from '../assets/MoneyWiseLogo.jpg'; // Importa la imagen directamente
+import '../styles/LoginForm.css';
+import logo from '../assets/MoneyWiseLogo.jpg';
 
-function LoginForm({ onLoginSuccess, onChangeToCrearCuenta }) {
+function LoginForm({ onLoginSuccess, onSignUpClick }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -23,7 +24,7 @@ function LoginForm({ onLoginSuccess, onChangeToCrearCuenta }) {
     <div className="screen">
       <div className="container">
         <img
-          src={logo} // Usa la variable importada
+          src={logo}
           alt="MoneyWise Logo"
           className="image"
         />
@@ -46,7 +47,7 @@ function LoginForm({ onLoginSuccess, onChangeToCrearCuenta }) {
           />
           <button type="submit" className="button">Iniciar sesión</button>
         </form>
-        <button className="button" onClick={onChangeToCrearCuenta}>Crear cuenta</button>
+        <button className="button" onClick={onSignUpClick}>Crear cuenta</button>
       </div>
     </div>
   );
