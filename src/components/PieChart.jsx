@@ -1,10 +1,10 @@
-// /components/PieChart.jsx
+// src/components/PieChart.jsx
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
+import '../styles/PieChart.css'; // Importa el archivo CSS
 
 const PieChart = ({ data }) => {
-  // Verifica si data es un arreglo, si no lo es, asigna un arreglo vacío
   const chartData = {
     labels: Array.isArray(data) ? data.map(item => item.categoria) : [],
     datasets: [{
@@ -13,8 +13,11 @@ const PieChart = ({ data }) => {
     }]
   };
 
-  return <Pie data={chartData} />;
+  return (
+    <div className="pie-chart-container">
+      <Pie data={chartData} />
+    </div>
+  );
 };
 
 export default PieChart;
-

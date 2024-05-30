@@ -1,10 +1,10 @@
 // src/components/TransaccionesTable.jsx
 import React from 'react';
-import '../styles/TransaccionesTable.css';
+import '../styles/TransaccionesTable.css'; // Importa el archivo CSS
 
 const TransaccionesTable = ({ transacciones }) => {
   return (
-    <div>
+    <div className="table-container">
       <h3>Transacciones</h3>
       {transacciones.length === 0 ? (
         <p>No hay transacciones registradas.</p>
