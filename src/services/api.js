@@ -1,7 +1,7 @@
-//api.js
+// src/services/api.js
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3050';
+const BASE_URL = '/api'; // Usar el proxy
 
 export const login = async (email, password) => {
   try {
