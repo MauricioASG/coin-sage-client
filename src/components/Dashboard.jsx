@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import SalarioForm from './SalarioForm';
 import GastoForm from './GastoForm';
 import PieChart from './PieChart';
-import TransaccionesTable from './TransaccionesTable'; // Importamos el nuevo componente
+import TransaccionesTable from './TransaccionesTable';
 import axios from 'axios';
+import '../styles/Dashboard.css'; // Importar el archivo CSS
 
 const Dashboard = ({ user }) => {
   const [transacciones, setTransacciones] = useState([]);
@@ -40,14 +41,18 @@ const Dashboard = ({ user }) => {
   };
 
   return (
-    <div>
-      <h2>Bienvenido, {user.nombre}</h2>
-      <button onClick={handleLogout}>Cerrar Sesión</button>
-      <p>Este es tu panel de control.</p>
-      <SalarioForm userId={user.id} />
-      <GastoForm userId={user.id} />
-      <PieChart data={gastos} />
-      <TransaccionesTable transacciones={transacciones} />
+    <div className="dashboard-container">
+      <div className="sidebar">
+        <SalarioForm userId={user.id} />
+        <GastoForm userId={user.id} />
+        <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
+      </div>
+      <div className="chart">
+        <PieChart data={gastos} />
+      </div>
+      <div className="table-container">
+        <TransaccionesTable transacciones={transacciones} />
+      </div>
     </div>
   );
 };

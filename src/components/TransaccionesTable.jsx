@@ -1,6 +1,6 @@
 // src/components/TransaccionesTable.jsx
 import React from 'react';
-import '../styles/TransaccionesTable.css'; // Importa el archivo CSS
+import '../styles/Dashboard.css'; // Importa el archivo CSS consolidado
 
 const TransaccionesTable = ({ transacciones }) => {
   return (
