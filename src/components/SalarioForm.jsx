@@ -4,18 +4,18 @@ import axios from 'axios';
 
 const SalarioForm = ({ userId }) => {
   const [salario, setSalario] = useState('');
-  const [salarioRegistrado, setSalarioRegistrado] = useState(false);
+  const [error, setError] = useState(null);
+  const [isSalarioRegistrado, setIsSalarioRegistrado] = useState(false);
 
   useEffect(() => {
     const fetchSalario = async () => {
       try {
         const response = await axios.get(`http://localhost:3050/usuarios/${userId}`);
-        if (response.data.salario && parseFloat(response.data.salario) > 0) {
-          setSalario(response.data.salario);
-          setSalarioRegistrado(true);
+        if (response.data.salario > 0) {
+          setIsSalarioRegistrado(true);
         }
       } catch (error) {
-        console.error('Error al obtener el salario del usuario:', error);
+        console.error('Error al obtener el salario:', error);
       }
     };
 
@@ -24,16 +24,16 @@ const SalarioForm = ({ userId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (salarioRegistrado) {
-      alert('Su salario ya ha sido registrado');
+    if (isSalarioRegistrado) {
+      alert('Su salario ya ha sido registrado.');
       return;
     }
     try {
       await axios.post(`http://localhost:3050/usuarios/${userId}/salario`, { salario });
       alert('Salario registrado exitosamente');
-      setSalarioRegistrado(true);
+      setIsSalarioRegistrado(true);
     } catch (error) {
-      alert('Error al registrar el salario');
+      setError('Error al registrar el salario');
     }
   };
 
@@ -44,8 +44,10 @@ const SalarioForm = ({ userId }) => {
         value={salario}
         onChange={(e) => setSalario(e.target.value)}
         placeholder="Ingresa tu salario mensual"
+        disabled={isSalarioRegistrado}
       />
-      <button type="submit">Registrar Salario</button>
+      <button type="submit" disabled={isSalarioRegistrado}>Registrar Salario</button>
+      {error && <p>{error}</p>}
     </form>
   );
 };

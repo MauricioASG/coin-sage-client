@@ -6,7 +6,7 @@ import GastoForm from './GastoForm';
 import PieChart from './PieChart';
 import TransaccionesTable from './TransaccionesTable';
 import axios from 'axios';
-import '../styles/Dashboard.css'; // Importar el archivo CSS
+import '../styles/Dashboard.css';
 
 const Dashboard = ({ user }) => {
   const [transacciones, setTransacciones] = useState([]);

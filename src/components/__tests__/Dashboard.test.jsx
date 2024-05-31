@@ -1,9 +1,5 @@
-// Vamos a escribir una prueba para el componente `Dashboard` 
+// prueba para el componente `Dashboard` 
 // para asegurarnos de que se renderiza correctamente con los datos esperados.
-// src/components/__tests__/Dashboard.test.jsx
-
-// src/components/__tests__/Dashboard.test.jsx
-
 // src/components/__tests__/Dashboard.test.jsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
