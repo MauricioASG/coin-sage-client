@@ -1,0 +1,74 @@
+/* Estilos inspirados en el diseño de la aplicación React Native */
+
+.screen {
+  height: 50vh;
+  background-color: #0073AB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 1000px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #64B5F6;
+  width: 100%;
+  margin-top: 80px;
+  max-width: 400px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.textInput {
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  padding: 12px;
+  width: 95%px;
+  height: 40px;
+  margin: 8px 1px;
+}
+
+.text {
+  color: black;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: #E3F2FD;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 2px;
+  font-size: 16px;
+  width: 100%;
+  height: 40px;
+  font-weight: 300px;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.button:hover {
+  background-color: #BBDEFB;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}

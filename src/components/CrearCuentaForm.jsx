@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { crearCuenta } from '../services/api';
-import '../styles/LoginForm.css';
+import '../styles/CrearCuentaForm.css';
 
 function CrearCuentaForm({ onCuentaCreada }) {
   const [nombre, setNombre] = useState('');

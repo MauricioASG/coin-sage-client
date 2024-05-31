@@ -1,5 +1,4 @@
-// /components/LoginForm.jsx
-// LoginForm.jsx
+// src/components/LoginForm.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/api';
@@ -30,7 +29,7 @@ function LoginForm({ onLoginSuccess }) {
         <img src={logo} alt="MoneyWise Logo" className="image" />
         <h2 className="text">Inicio de sesión</h2>
         {error && <p className="error">{error}</p>}
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+        <form onSubmit={handleLogin}>
           <input
             type="email"
             value={email}
@@ -45,9 +44,9 @@ function LoginForm({ onLoginSuccess }) {
             placeholder="Contraseña"
             className="textInput"
           />
-          <button type="submit" className="button">Iniciar sesión</button>
+          <button type="submit" className="botonIniciarSesion">Iniciar sesión</button>
         </form>
-        <button className="button" onClick={() => navigate('/crear-cuenta')}>Crear cuenta</button>
+        <button className="botonCrearCuenta" onClick={() => navigate('/crear-cuenta')}>Crear cuenta</button>
       </div>
     </div>
   );
