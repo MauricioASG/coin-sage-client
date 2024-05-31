@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# Coin Sage Client
+- Mauricio Alejandro Serrano García.
+- I.S.C
+- N.C: 20460545
+- Este repositorio contiene la aplicación frontend de Coin Sage, una aplicación web para la gestión de finanzas personales.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tabla de contenido
 
-Currently, two official plugins are available:
+- [Coin Sage Client](#coin-sage-client)
+  - [Tabla de contenido](#tabla-de-contenido)
+  - [Requisitos de instalación](#requisitos-de-instalación)
+  - [Instrucciones para la instalación](#instrucciones-para-la-instalación)
+  - [Documentación detallada](#documentación-detallada)
+  - [Enlaces externos](#enlaces-externos)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisitos de instalación
 
-## Expanding the ESLint configuration
+Debes asegurarte de tener instalado y configurado lo siguiente antes de comenzar:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
-- Configure the top-level `parserOptions` property like this:
+## Instrucciones para la instalación
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. Clonar el repositorio en la máquina local:
+   
+   ```sh
+   git clone https://github.com/MauricioASG/coin-sage-client.git
+   ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navegar al directorio del proyecto:
+   
+   ```sh
+   cd coin-sage-client
+   ```
+
+3. Instalar las dependencias del proyecto:
+   
+   ```sh
+   npm install
+   ```
+
+4. Asegúrate de que el backend esté ejecutándose. Sigue las instrucciones para desplegar el backend disponibles en [Coin Sage API](https://github.com/MauricioASG/coin-sage.git).
+
+5. Iniciar el servidor de desarrollo:
+
+    ```sh
+    npm run dev
+    ```
+
+6. Abrir el navegador y navegar a `http://localhost:5173` para ver la aplicación en funcionamiento.
