@@ -124,8 +124,8 @@ Ejecutar las pruebas
 Asegúrate de tener Jest configurado en el proyecto.
 
 Ejecutar las pruebas:
-  ```sh
-  npm test
+   ```sh
+   npm test
    ```
 
 ## Enlaces externos
