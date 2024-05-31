@@ -12,7 +12,7 @@
 - [Instrucciones para la instalación](#instrucciones-para-la-instalación)
 - [Prototipos de la vista y cómo utilizarlas](#prototipos-de-la-vista-y-cómo-utilizarlas)
 - [Descripción de las pruebas y cómo ejecutarlas](#descripción-de-las-pruebas-y-cómo-ejecutarlas)
-- [Enlaces externos](Enlaces-externos.)
+- [Enlaces externos](Enlaces-externos)
 
 ## Descripción del proyecto
 
@@ -128,7 +128,7 @@ Ejecutar las pruebas:
   npm test
    ```
 
-## Enlaces externos.
+## Enlaces externos
 - [Node.js](https://nodejs.org/) 
 - [npm](https://www.npmjs.com/) 
 - [Coin Sage API] (https://github.com/MauricioASG/coin-sage.git).
