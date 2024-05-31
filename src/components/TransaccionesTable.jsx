@@ -2,7 +2,12 @@
 import React from 'react';
 import '../styles/Dashboard.css'; // Importa el archivo CSS consolidado
 
-const TransaccionesTable = ({ transacciones }) => {
+const TransaccionesTable = ({ transacciones, categorias }) => {
+  const getCategoriaNombre = (categoriaId) => {
+    const categoria = categorias.find(cat => cat.id === categoriaId);
+    return categoria ? categoria.nombre : 'Desconocida';
+  };
+
   return (
     <div className="table-container">
       <h3>Transacciones</h3>
@@ -23,7 +28,7 @@ const TransaccionesTable = ({ transacciones }) => {
             {transacciones.map((transaccion) => (
               <tr key={transaccion.id}>
                 <td>{transaccion.id}</td>
-                <td>{transaccion.categoria_id}</td>
+                <td>{getCategoriaNombre(transaccion.categoria_id)}</td>
                 <td>{transaccion.monto}</td>
                 <td>{transaccion.tipo}</td>
                 <td>{new Date(transaccion.fecha).toLocaleString()}</td>

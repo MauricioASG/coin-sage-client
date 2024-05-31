@@ -10,24 +10,28 @@ import '../styles/Dashboard.css'; // Importar el archivo CSS
 
 const Dashboard = ({ user }) => {
   const [transacciones, setTransacciones] = useState([]);
+  const [categorias, setCategorias] = useState([]);
   const [gastos, setGastos] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTransacciones = async () => {
       try {
-        const response = await axios.get('/api/transacciones');
-        if (Array.isArray(response.data)) {
-          const userTransacciones = response.data.filter(transaccion => transaccion.usuario_id === user.id);
+        const transaccionesResponse = await axios.get('/api/transacciones');
+        const categoriasResponse = await axios.get('/api/categorias');
+        if (Array.isArray(transaccionesResponse.data) && Array.isArray(categoriasResponse.data)) {
+          const userTransacciones = transaccionesResponse.data.filter(transaccion => transaccion.usuario_id === user.id);
           setTransacciones(userTransacciones);
+          setCategorias(categoriasResponse.data);
           const userGastos = userTransacciones.filter(transaccion => transaccion.tipo === 'Gasto');
           setGastos(userGastos);
         } else {
-          console.error('La respuesta de la API no es un arreglo:', response.data);
+          console.error('La respuesta de la API no es un arreglo:', transaccionesResponse.data, categoriasResponse.data);
         }
       } catch (error) {
-        console.error('Error al obtener las transacciones:', error);
+        console.error('Error al obtener las transacciones o categorías:', error);
         setTransacciones([]);
+        setCategorias([]);
       }
     };
 
@@ -52,12 +56,10 @@ const Dashboard = ({ user }) => {
           <PieChart data={gastos} />
         </div>
         <div className="table-container">
-          <TransaccionesTable transacciones={transacciones} />
+          <TransaccionesTable transacciones={transacciones} categorias={categorias} />
         </div>
       </div>
-
     </div>
-
   );
 };
 
