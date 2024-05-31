@@ -68,7 +68,7 @@ const Dashboard = ({ user }) => {
     <div className="screen">
       <div className="dashboard-container">
         <div className="sidebar">
-          <h3>Bienvenid@, {user.nombre}</h3>
+          <h2>Bienvenid@, {user.nombre}</h2>
           <SalarioForm userId={user.id} />
           <GastoForm userId={user.id} />
           <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>

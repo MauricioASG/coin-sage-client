@@ -1,22 +1,19 @@
 /* src/styles/Dashboard.css */
 .screen {
-  min-height: 100vh;
+  height: 1300px;
   background-color: #086290;
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Alinear al inicio verticalmente */
-  overflow: auto; /* Permitir desplazamiento vertical */
-  padding: 20px;
+  overflow: 1200px; /* Permitir desplazamiento vertical */
 }
 
 .dashboard-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 20px;
-  padding: 20px;
   font-size: large;
-  max-width: 1200px;
-  width: 100%;
+  width: 1300px;
+  background-color: black
 }
 
 .sidebar {
@@ -31,21 +28,23 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
   width: 100%;
   max-width: 300px; /* Ajusta el ancho máximo del contenedor si es necesario */
+  margin-top: 20px;
+  margin-left: 50px;
 }
 
 .chart {
   grid-column: 2 / 3;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column; /* Colocar el título y la gráfica en una columna */
+  margin-left: 50px;
+  margin-right: -90px ;
 }
 
 .table-container {
   grid-column: 1 / 3;
   margin: 20px auto; /* Centrar el contenedor horizontalmente */
   overflow-x: auto; /* Añadir scroll horizontal si es necesario */
-  max-width: 1000px; /* Ajusta el ancho máximo del contenedor si es necesario */
+  max-width: 1500px; /* Ajusta el ancho máximo del contenedor si es necesario */
 }
 
 .table-scroll {
@@ -54,17 +53,18 @@
 }
 
 table {
-  width: 100%;
+  width: 970px;
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 16px;
   text-align: left;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
 }
 
 th, td {
-  font-size: 20px;
+  font-size: 18px;
   padding: 10px 10px;
   border: 1px solid #ddd;
 }
@@ -137,10 +137,10 @@ input {
 
 select {
   width: 100%; /* Ajusta el ancho según tus necesidades */
-  height: 35px; /* Ajusta la altura según tus necesidades */
+  height: 38px; /* Ajusta la altura según tus necesidades */
   padding: 8px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 2px solid #060404;
   background-color: #f9f9f9;
   font-size: 16px;
   color: #333;
@@ -155,6 +155,12 @@ select option {
 
 h3 {
   font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
+  color: #f6f1f1;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #171010;
+  margin-bottom: 5px;
 }
