@@ -9,13 +9,14 @@
 - [Coin Sage Client](#coin-sage-client)
   - [Requisitos de instalación](#requisitos-de-instalación)
   - [Instrucciones para la instalación](#instrucciones-para-la-instalación)
+  - [Enlaces externos](Enlaces-externos.)
 
 ## Requisitos de instalación
 
 Debes asegurarte de tener instalado y configurado lo siguiente antes de comenzar:
 
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/) (Versión recomendada: 18.2.0)
+- [npm](https://www.npmjs.com/) (Versión recomendada: 8.11.0)
 
 ## Instrucciones para la instalación
 
@@ -46,3 +47,8 @@ Debes asegurarte de tener instalado y configurado lo siguiente antes de comenzar
     ```
 
 6. Abrir el navegador y navegar a `http://localhost:5173` para ver la aplicación en funcionamiento.
+
+## Enlaces externos.
+- [Node.js](https://nodejs.org/) 
+- [npm](https://www.npmjs.com/) 
+- [Coin Sage API] (https://github.com/MauricioASG/coin-sage.git).
