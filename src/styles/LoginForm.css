@@ -6,16 +6,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-height: 1000px;
 }
 
 .container {
-  margin-bottom: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #64B5F6;
   width: 100%;
+  margin-bottom: 200px;
   max-width: 400px;
   padding: 16px;
   border-radius: 8px;
@@ -28,8 +29,8 @@
   border-radius: 8px;
   background-color: white;
   padding: 12px;
-  width: 80%;
-  margin: 8px 0;
+  width: 95%;
+  margin: 8px 0px;
 }
 
 .text {

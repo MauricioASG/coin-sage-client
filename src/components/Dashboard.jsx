@@ -21,10 +21,31 @@ const Dashboard = ({ user }) => {
         const categoriasResponse = await axios.get('/api/categorias');
         if (Array.isArray(transaccionesResponse.data) && Array.isArray(categoriasResponse.data)) {
           const userTransacciones = transaccionesResponse.data.filter(transaccion => transaccion.usuario_id === user.id);
+          const userGastos = userTransacciones.filter(transaccion => transaccion.tipo === 'Gasto');
+          const categoriasMap = categoriasResponse.data.reduce((map, categoria) => {
+            map[categoria.id] = categoria.nombre;
+            return map;
+          }, {});
+
+          // Agrupar y sumar los gastos por categoría
+          const gastosAgrupados = userGastos.reduce((acc, gasto) => {
+            const categoriaNombre = categoriasMap[gasto.categoria_id] || 'Desconocida';
+            if (!acc[categoriaNombre]) {
+              acc[categoriaNombre] = 0;
+            }
+            acc[categoriaNombre] += parseFloat(gasto.monto);
+            return acc;
+          }, {});
+
+          // Convertir el objeto agrupado en un arreglo de objetos
+          const gastosConCategorias = Object.entries(gastosAgrupados).map(([categoria, monto]) => ({
+            categoria,
+            monto
+          }));
+
           setTransacciones(userTransacciones);
           setCategorias(categoriasResponse.data);
-          const userGastos = userTransacciones.filter(transaccion => transaccion.tipo === 'Gasto');
-          setGastos(userGastos);
+          setGastos(gastosConCategorias);
         } else {
           console.error('La respuesta de la API no es un arreglo:', transaccionesResponse.data, categoriasResponse.data);
         }
