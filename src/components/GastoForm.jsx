@@ -13,7 +13,14 @@ const GastoForm = ({ userId }) => {
       try {
         const response = await axios.get('http://localhost:3050/categorias');
         if (Array.isArray(response.data)) {
-          setCategorias(response.data);
+          // Filtrar la categoría de salario si aún existe
+          const filteredCategories = response.data.map(categoria => {
+            if (categoria.nombre === 'Salario') {
+              return { ...categoria, nombre: 'Otros' };
+            }
+            return categoria;
+          });
+          setCategorias(filteredCategories);
         } else {
           setCategorias([]);
         }
@@ -50,8 +57,9 @@ const GastoForm = ({ userId }) => {
         value={monto}
         onChange={(e) => setMonto(e.target.value)}
         placeholder="Monto del gasto"
+        className="textInput"
       />
-      <button type="submit">Registrar Gasto</button>
+      <button type="submit" className="submit-button">Registrar Gasto</button>
     </form>
   );
 };
