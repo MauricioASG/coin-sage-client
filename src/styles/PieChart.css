@@ -1,7 +1,7 @@
 /* src/styles/PieChart.css */
 .pie-chart-container {
   width: 500px; /* Ajusta el tamaño según tus necesidades */
-  height: 500px; /* Ajusta el tamaño según tus necesidades */
+  height: 450px; /* Ajusta el tamaño según tus necesidades */
   margin: 0 auto; /* Centra el gráfico */
   padding-right: 350px;
 }

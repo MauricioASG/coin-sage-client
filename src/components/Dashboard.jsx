@@ -1,4 +1,3 @@
-// components/Dashboard.jsx
 // src/components/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -41,19 +40,24 @@ const Dashboard = ({ user }) => {
   };
 
   return (
-    <div className="dashboard-container">
-      <div className="sidebar">
-        <SalarioForm userId={user.id} />
-        <GastoForm userId={user.id} />
-        <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
+    <div className="screen" >
+      <div className="dashboard-container">
+        <div className="sidebar">
+          <h3>Bienvenid@, {user.nombre}</h3>
+          <SalarioForm userId={user.id} />
+          <GastoForm userId={user.id} />
+          <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
+        </div>
+        <div className="chart">
+          <PieChart data={gastos} />
+        </div>
+        <div className="table-container">
+          <TransaccionesTable transacciones={transacciones} />
+        </div>
       </div>
-      <div className="chart">
-        <PieChart data={gastos} />
-      </div>
-      <div className="table-container">
-        <TransaccionesTable transacciones={transacciones} />
-      </div>
+
     </div>
+
   );
 };
 
