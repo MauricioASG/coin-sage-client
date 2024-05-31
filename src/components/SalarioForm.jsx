@@ -12,6 +12,7 @@ const SalarioForm = ({ userId }) => {
       try {
         const response = await axios.get(`http://localhost:3050/usuarios/${userId}`);
         if (response.data.salario > 0) {
+          setSalario(response.data.salario);
           setIsSalarioRegistrado(true);
         }
       } catch (error) {
