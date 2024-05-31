@@ -7,11 +7,8 @@
 ## Tabla de contenido
 
 - [Coin Sage Client](#coin-sage-client)
-  - [Tabla de contenido](#tabla-de-contenido)
   - [Requisitos de instalación](#requisitos-de-instalación)
   - [Instrucciones para la instalación](#instrucciones-para-la-instalación)
-  - [Documentación detallada](#documentación-detallada)
-  - [Enlaces externos](#enlaces-externos)
 
 ## Requisitos de instalación
 
