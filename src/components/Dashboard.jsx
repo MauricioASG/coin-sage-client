@@ -65,7 +65,7 @@ const Dashboard = ({ user }) => {
   };
 
   return (
-    <div className="screen" >
+    <div className="screen">
       <div className="dashboard-container">
         <div className="sidebar">
           <h3>Bienvenid@, {user.nombre}</h3>
