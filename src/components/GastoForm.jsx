@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Dashboard.css'; // Importar el archivo CSS
 
-const GastoForm = ({ userId }) => {
+const GastoForm = ({ userId, onGastoRegistrado }) => {
   const [categorias, setCategorias] = useState([]);
   const [categoriaId, setCategoriaId] = useState('');
   const [monto, setMonto] = useState('');
@@ -13,14 +13,7 @@ const GastoForm = ({ userId }) => {
       try {
         const response = await axios.get('http://localhost:3050/categorias');
         if (Array.isArray(response.data)) {
-          // Filtrar la categoría de salario si aún existe
-          const filteredCategories = response.data.map(categoria => {
-            if (categoria.nombre === 'Salario') {
-              return { ...categoria, nombre: 'Otros' };
-            }
-            return categoria;
-          });
-          setCategorias(filteredCategories);
+          setCategorias(response.data);
         } else {
           setCategorias([]);
         }
@@ -38,6 +31,8 @@ const GastoForm = ({ userId }) => {
     try {
       await axios.post('http://localhost:3050/transacciones/gasto', { usuario_id: userId, categoria_id: categoriaId, monto });
       alert('Gasto registrado exitosamente');
+      setMonto(''); // Limpiar la entrada de texto
+      onGastoRegistrado(); // Notificar al Dashboard que se ha registrado un gasto
     } catch (error) {
       console.error('Error al registrar el gasto:', error);
       alert('Error al registrar el gasto');
@@ -57,9 +52,8 @@ const GastoForm = ({ userId }) => {
         value={monto}
         onChange={(e) => setMonto(e.target.value)}
         placeholder="Monto del gasto"
-        className="textInput"
       />
-      <button type="submit" className="submit-button">Registrar Gasto</button>
+      <button type="submit">Registrar Gasto</button>
     </form>
   );
 };
